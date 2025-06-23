@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Two Numbers</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <h2>Simple Addition Calculator</h2>
+
+  <label for="num1">Enter first number:</label><br>
+  <input type="text" id="num1"><br><br>
+
+  <label for="num2">Enter second number:</label><br>
+  <input type="text" id="num2"><br><br>
+
+  <button onclick="addNumbers()">Add</button>
+
+  <p id="result"></p>
+
+  <script>
+    function addNumbers() {
+      var input1 = document.getElementById("num1").value;
+      var input2 = document.getElementById("num2").value;
+
+      // Convert string inputs to numbers using Number()
+      var number1 = Number(input1);
+      var number2 = Number(input2);
+
+      // Check for invalid input (e.g., non-numeric text)
+      if (isNaN(number1) || isNaN(number2)) {
+        document.getElementById("result").textContent = "Please enter valid numbers.";
+      } else {
+        var sum = number1 + number2;
+        document.getElementById("result").textContent = "The sum is: " + sum;
+      }
+    }
+  </script>
+
+</body>
+</html>

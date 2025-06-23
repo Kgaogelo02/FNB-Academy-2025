@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Advice</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <h2>Choose the weather condition:</h2>
+
+  <select id="weatherInput">
+    <option value="">-- Select Weather --</option>
+    <option value="sunny">Sunny</option>
+    <option value="rainy">Rainy</option>
+    <option value="cloudy">Cloudy</option>
+    <option value="snowy">Snowy</option>
+    <option value="windy">Windy</option>
+    <option value="stormy">Stormy</option>
+  </select>
+
+  <br><br>
+  <button onclick="giveAdvice()">Get Weather Advice</button>
+
+  <p id="adviceMessage"></p>
+
+  <script>
+    function giveAdvice() {
+      var weather = document.getElementById("weatherInput").value;
+
+      switch (weather) {
+        case "sunny":
+          document.getElementById("adviceMessage").textContent ="It's sunny! Don't forget your sunglasses and sunscreen.";
+          break;
+
+        case "rainy":
+          document.getElementById("adviceMessage").textContent ="It's rainy. Take an umbrella and wear waterproof shoes.";
+          break;
+
+        case "cloudy":
+          document.getElementById("adviceMessage").textContent ="It's cloudy. Might be a bit gloomy, but great for a walk.";
+          break;
+
+        case "snowy":
+          document.getElementById("adviceMessage").textContent ="Snowy weather! Dress warmly and drive carefully.";
+          break;
+
+        case "windy":
+          document.getElementById("adviceMessage").textContent ="It's windy outside. Secure any loose items and wear a windbreaker.";
+          break;
+
+        case "stormy":
+          document.getElementById("adviceMessage").textContent ="Stormy conditions! Stay indoors and avoid travel if possible.";
+          break;
+
+        default:
+          document.getElementById("adviceMessage").textContent ="Please select a weather condition to get advice.";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
