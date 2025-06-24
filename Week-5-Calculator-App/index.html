@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Basic Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <td colspan="4">
+        <input type="text" id="inputBox" value="0" readonly />
+      </td> 
+    </tr>
+    <tr>
+      <td class="btn" onclick="press('7')">7</td>
+      <td class="btn" onclick="press('8')">8</td>
+      <td class="btn" onclick="press('9')">9</td>
+      <td class="btn operator" onclick="operatorBtnPressed('*')">x</td>
+    </tr>
+    <tr>
+      <td class="btn" onclick="press('4')">4</td>
+      <td class="btn" onclick="press('5')">5</td>
+      <td class="btn" onclick="press('6')">6</td>
+      <td class="btn operator" onclick="operatorBtnPressed('-')">-</td>
+    </tr>
+    <tr>
+      <td class="btn" onclick="press('1')">1</td>
+      <td class="btn" onclick="press('2')">2</td>
+      <td class="btn" onclick="press('3')">3</td>
+      <td class="btn operator" onclick="operatorBtnPressed('+')">+</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="btn" onclick="press('0')">0</td>
+      <td class="btn ac" onclick="btnACPressed()">AC</td>
+      <td class="btn operator" onclick="operatorBtnPressed('/')">/</td>
+    </tr>
+    <tr>
+      <td colspan="4" class="btn equal" onclick="equalsBtnPressed()">=</td>
+    </tr>
+  </table>
+
+  <script>
+    let newLine = true;
+    let value1;
+    let currentOperator;
+
+    function press(button) {
+      const input = document.getElementById("inputBox");
+
+      if (newLine || input.value === "0") {
+        input.value = button;
+        newLine = false;
+      } else {
+        input.value += button;
+      }
+    }     
+
+    function btnACPressed() {
+      document.getElementById("inputBox").value = "0";
+      newLine = true;
+    }
+
+    function operatorBtnPressed(operator) {
+      currentOperator = operator;
+      value1 = parseFloat(document.getElementById("inputBox").value);
+      newLine = true;
+    }
+
+    function equalsBtnPressed() {
+      const value2 = parseFloat(document.getElementById("inputBox").value);
+      let finalTotal;
+
+      switch (currentOperator) {
+        case "+":
+          finalTotal = value1 + value2;
+          break;
+        case "-":
+          finalTotal = value1 - value2;
+          break;
+        case "*":
+          finalTotal = value1 * value2;
+          break;
+        case "/":
+          finalTotal = value2 !== 0 ? value1 / value2 : "Error";
+          break;
+        default:
+          finalTotal = value2;
+      }
+
+      document.getElementById("inputBox").value = finalTotal;
+      value1 = 0;
+      newLine = true;
+    }
+  </script>
+</body>
+</html>
+
+

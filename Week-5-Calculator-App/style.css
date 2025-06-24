@@ -1,0 +1,48 @@
+table {
+    text-align:center;
+    color: #fff;
+    border-collapse: collapse;
+    font: normal 3em Arial, Helvetica, sans-serif;
+}
+
+tr {
+    height: 16.02vh;
+    background-color: #4e494d;
+}
+
+td {
+    width: 25vw;
+    border: 1px solid #4e494d; 
+}
+
+#inputBox {
+  width: 100%;
+  font-size: 2em;
+  text-align: right;
+  background-color: #2a2727;
+  color: #fff;
+  border: none;
+}
+
+.operator {
+  background-color: orange;
+}
+
+.ac {
+  background-color: rgb(43, 40, 35);
+}
+
+.equal {
+  background-color: orange;
+  font-weight: bold;
+}
+
+td:hover {
+  background-color: #8b6c6c;
+}
+
+td:active {
+  background-color: #999;
+}
+
+
